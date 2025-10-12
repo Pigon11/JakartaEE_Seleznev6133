@@ -20,11 +20,11 @@
 - **Сервер приложений**: GlassFish 6.2.5
 
 ## 📦 Запуск приложения
-1. Установи GlassFish 6.2.5 и PostgreSQL
-2. Создай БД: `CREATE DATABASE library_db_practic1;`
-3. Настрой DataSource в GlassFish (JNDI: `jdbc/footballDS`)
-4. Выполни: `asadmin deploy target/Football-App-1.0-SNAPSHOT.war`
-5. Открой: http://localhost:8080/Football-App-1.0-SNAPSHOT/teams.xhtml
+1. Установите GlassFish 6.2.5 и PostgreSQL
+2. Создайте БД: `CREATE DATABASE library_db_practic1;`
+3. Настройте DataSource в GlassFish (JNDI: `jdbc/footballDS`)
+4. Выполните: `asadmin deploy target/Football-App-1.0-SNAPSHOT.war`
+5. Откройте: http://localhost:8080/Football-App-1.0-SNAPSHOT/teams.xhtml
 
 ## 📸 Скриншоты
 Вот как это работает:
