@@ -30,7 +30,7 @@
 Вот как это работает:
 1. Проект задеплоен в GlassFish
 <img width="1852" height="740" alt="image" src="https://github.com/user-attachments/assets/6cac2c4f-758e-4eff-973e-47f3d27b4678" />
-2. Работающее приложение - Команды ;`
+2. Работающее приложение - Команды
 <img width="1850" height="783" alt="image" src="https://github.com/user-attachments/assets/3c85fe45-ab75-4ba0-a8f7-31686ec451e4" />
 Добаим Локомотив
 <img width="1859" height="824" alt="image" src="https://github.com/user-attachments/assets/f31c2692-fda0-4b56-95a6-f91e12a4c9ca" />
