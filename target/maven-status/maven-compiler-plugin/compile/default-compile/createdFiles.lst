@@ -1,0 +1,6 @@
+ru\seleznev\entity\Team.class
+ru\seleznev\service\TeamService.class
+ru\seleznev\service\PlayerService.class
+ru\seleznev\bean\PlayerBean.class
+ru\seleznev\bean\TeamBean.class
+ru\seleznev\entity\Player.class

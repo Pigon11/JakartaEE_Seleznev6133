@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?> <!-- Настройка подключения к бд -->
+<persistence version="3.0" xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence
+             https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
+
+    <persistence-unit name="footballPU" transaction-type="JTA">
+        <jta-data-source>jdbc/footballDS</jta-data-source>
+        <class>ru.seleznev.entity.Team</class>
+        <class>ru.seleznev.entity.Player</class>
+        <properties>
+            <property name="jakarta.persistence.schema-generation.database.action" value="none"/>
+            <!-- Детальные логи, очень долго возился -->
+            <property name="eclipselink.logging.level" value="FINE"/>
+        </properties>
+    </persistence-unit>
+
+</persistence>

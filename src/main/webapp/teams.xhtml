@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Управление командами</title>
+</h:head>
+<h:body>
+    <h1>🏆 Команды РПЛ</h1>
+
+    <!-- Таблица со списком команд -->
+    <h:form>
+        <h:dataTable value="#{teamBean.teams}" var="team" style="width: 100%">
+            <h:column>
+                <f:facet name="header">ID</f:facet>
+                #{team.id}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Название</f:facet>
+                #{team.name}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Город</f:facet>
+                #{team.city}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Стадион</f:facet>
+                #{team.stadium}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Действия</f:facet>
+                <h:commandButton value="✏️" action="#{teamBean.editTeam(team)}"/>
+                <h:commandButton value="❌" action="#{teamBean.deleteTeam(team)}"/>
+            </h:column>
+        </h:dataTable>
+    </h:form>
+
+    <!-- Форма для добавления/редактирования команды -->
+    <h2>#{teamBean.selectedTeam.id == null ? 'Добавить команду' : 'Редактировать команду'}</h2>
+    <h:form>
+        <p>Название: <h:inputText value="#{teamBean.selectedTeam.name}"/></p>
+        <p>Город: <h:inputText value="#{teamBean.selectedTeam.city}"/></p>
+        <p>Стадион: <h:inputText value="#{teamBean.selectedTeam.stadium}"/></p>
+        <h:commandButton value="💾 Сохранить" action="#{teamBean.saveTeam}"/>
+    </h:form>
+
+    <!-- Ссылка на страницу игроков -->
+    <p><h:link outcome="players">👉 Перейти к управлению игроками</h:link></p>
+</h:body>
+</html>

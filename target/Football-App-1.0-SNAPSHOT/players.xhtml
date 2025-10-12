@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Управление игроками</title>
+</h:head>
+<h:body>
+    <h1>⚽ Игроки РПЛ</h1>
+
+    <!-- Таблица со списком игроков -->
+    <h:form>
+        <h:dataTable value="#{playerBean.players}" var="player" style="width: 100%">
+            <h:column>
+                <f:facet name="header">ID</f:facet>
+                #{player.id}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Имя</f:facet>
+                #{player.firstName}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Фамилия</f:facet>
+                #{player.lastName}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Позиция</f:facet>
+                #{player.position}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Команда</f:facet>
+                #{player.team.name}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Действия</f:facet>
+                <h:commandButton value="✏️" action="#{playerBean.editPlayer(player)}"/>
+                <h:commandButton value="❌" action="#{playerBean.deletePlayer(player)}"/>
+            </h:column>
+        </h:dataTable>
+    </h:form>
+
+    <!-- Форма для добавления/редактирования игрока -->
+    <h2>#{playerBean.selectedPlayer.id == null ? 'Добавить игрока' : 'Редактировать игрока'}</h2>
+    <h:form>
+        <p>Имя: <h:inputText value="#{playerBean.selectedPlayer.firstName}"/></p>
+        <p>Фамилия: <h:inputText value="#{playerBean.selectedPlayer.lastName}"/></p>
+        <p>Позиция:
+            <h:selectOneMenu value="#{playerBean.selectedPlayer.position}">
+                <f:selectItem itemValue="Вратарь" itemLabel="Вратарь"/>
+                <f:selectItem itemValue="Защитник" itemLabel="Защитник"/>
+                <f:selectItem itemValue="Полузащитник" itemLabel="Полузащитник"/>
+                <f:selectItem itemValue="Нападающий" itemLabel="Нападающий"/>
+            </h:selectOneMenu>
+        </p>
+        <p>Команда:
+            <h:selectOneMenu value="#{playerBean.selectedTeamId}">
+                <f:selectItems value="#{playerBean.teams}" var="team"
+                               itemValue="#{team.id}" itemLabel="#{team.name}"/>
+            </h:selectOneMenu>
+        </p>
+        <h:commandButton value="💾 Сохранить" action="#{playerBean.savePlayer}"/>
+    </h:form>
+
+    <!-- Ссылка на страницу команд -->
+    <p><h:link outcome="teams">👈 Вернуться к управлению командами</h:link></p>
+</h:body>
+</html>
